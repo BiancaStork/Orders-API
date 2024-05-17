@@ -40,13 +40,11 @@ public class OrderController {
     
     @GetMapping("/products/{id}")
     public Optional<ProductDto> productById(@PathVariable Long id) {
-        System.out.println(id);
         return productClient.getProductById(id);
     }
     
     @PostMapping("/add")
     public Order addOrder(@RequestBody Order order, @RequestParam Long productId) {
-        System.out.println("Id de producto pasado por parametro en Controller:" + productId);
        return ordersService.addOrder(order, productId);               
     }
 
